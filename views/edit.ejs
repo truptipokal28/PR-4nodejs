@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Book Form</title>
+    <style>
+        /* Add custom CSS styles here */
+        body {
+            background-image: url('https://images.pexels.com/photos/2128249/pexels-photo-2128249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            /* Replace with your image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .btn-primary {
+            background-color: #f5a623;
+            border: 1px solid #f5a623;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .form-table th,
+        .form-table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #fff;
+        }
+
+        .form-table th {
+            background-color: #f5a623;
+            color: #fff;
+        }
+
+        .form-table input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-btn {
+            margin-top: 10px;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        .table-container .btn-delete {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .table-container .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+        /* Book-themed styles */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-table th {
+            background-color: #6e8c8c;
+        }
+
+        .btn-primary {
+            background-color: #6e8c8c;
+            border: 1px solid #6e8c8c;
+        }
+
+        .btn-primary:hover {
+            background-color: #495d5d;
+            border: 1px solid #495d5d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="/updatedata" method="post">
+            <table class="form-table">
+                <input type="hidden" name="editid" value="<%= single.id%>">
+                <tr>
+                    <th>bookname:</th>
+                    <td><input type="text" name="bookname" value="<%= single.bookname%>"></td>
+                </tr>
+                <tr>
+                    <th>Price:</th>
+                    <td><input type="text" name="price" value="<%= single.price%>"></td>
+                </tr>
+                <tr>
+                    <th>Pages:</th>
+                    <td>
+                        <!-- <input type="text" name="pages" value="<%= single.pages%>"> -->
+                        <select type="text" class="form-control" name="pages" required>
+                            <option value="">select pages</option>
+                            <% let pages=["0-100","100-200","200-300","300-400"]; pages.map((val)=>{
+                                %>
+                                <option value="<%= val %>">
+                                    <%= val %>
+                                </option>
+                                <% })%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Author:</th>
+                    <td><input type="text" name="authorname" value="<%= single.authorname%>"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="form-btn"><button class="btn btn-primary">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
